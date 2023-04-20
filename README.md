@@ -1,5 +1,5 @@
-bam_depth.sh is a bash script that takes a BAM file and a BED file as input 
-and calculates the depth of coverage for each region in the BED file. 
+bam_depth.sh is a bash script that takes a BAM file and a BED file as input, 
+filters BAM and calculates the depth of coverage for each region in the BED file. 
 It considers the strand of the region and outputs a tab-separated file with 
 the region name and the coverage depth for each position in the region.
 
