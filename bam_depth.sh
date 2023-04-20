@@ -6,7 +6,7 @@
 # the region name and the coverage depth for each position in the region.
 # 
 # Usage:
-# ./bam_depth.sh --bam ${BAM} --bed {BED}
+# ./bam_depth.sh --bam <bam_file> --bed <bed_file> [--cpu <num_cpus>]
 #
 # Output:
 # ENSG00000187961.15	21	21	21	21	22
