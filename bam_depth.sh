@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-# bam_depth.sh is a bash script that takes a BAM file and a BED file as input 
-# and calculates the depth of coverage for each region in the BED file. 
+# bam_depth.sh is a bash script that takes a BAM file and a BED file as input,
+# filtes BAM and calculates the depth of coverage for each region in the BED file. 
 # It considers the strand of the region and outputs a tab-separated file with 
 # the region name and the coverage depth for each position in the region.
 # 
 # Usage:
-# ./bam_depth.sh --bam ${BAM} --bed{BED}
+# ./bam_depth.sh --bam ${BAM} --bed {BED}
 #
 # Output:
 # ENSG00000187961.15	21	21	21	21	22
