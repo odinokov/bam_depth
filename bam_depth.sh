@@ -135,7 +135,7 @@ run_command() {
 cleanup() {
     # Your cleanup code goes here
     # echo "Cleaning up..."
-    rm -rf ${TMP} ${TMP}.bai
+    rm -rf ${TMP_BAM_FILE} ${TMP_BAM_FILE}.bai
 }
 
 main() {
