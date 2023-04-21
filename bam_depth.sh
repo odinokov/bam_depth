@@ -48,7 +48,8 @@ Usage: $0 --bam <bam_file> --bed <bed_file> --slop <slop_size> [--cpu <num_cpus>
 Mandatory arguments:
   --bam     path to BAM file
   --bed     path to BED file
-  --slop    expands the specified region in a BED file by a certain distance in both the upstream and downstream directions
+  --slop    expands the specified regions in a BED file 
+            by a certain distance in both the up- and downstream directions
 
 Optional arguments:
   --cpu     number of CPUs (default: $DEFAULT_CPU)
