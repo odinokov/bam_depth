@@ -1,12 +1,13 @@
+%%writefile test.sh
 #!/bin/bash
 #
 # bam_depth.sh is a bash script that takes a BAM file and a BED file as input,
-# filtes BAM and calculates the depth of coverage for each region in the BED file. 
+# filters BAM and calculates the depth of coverage for each region in the BED file. 
 # It considers the strand of the region and outputs a tab-separated file with 
 # the region name and the coverage depth for each position in the region.
 # 
 # Usage:
-# ./bam_depth.sh --bam <bam_file> --bed <bed_file> [--cpu <num_cpus>]
+# ./bam_depth.sh --bam ${BAM} --bed{BED} --slop 2
 #
 # Output:
 # ENSG00000187961.15	21	21	21	21	22
@@ -43,11 +44,12 @@ DEFAULT_CPU=4
 
 show_help() {
     cat << EOF
-Usage: $0 --bam <bam_file> --bed <bed_file> [--cpu <num_cpus>]
+Usage: $0 --bam <bam_file> --bed <bed_file> --slop <slop_size> [--cpu <num_cpus>]
 
 Mandatory arguments:
   --bam     path to BAM file
   --bed     path to BED file
+  --slop    expands the specified region in a BED file by a certain distance in both the upstream and downstream directions
 
 Optional arguments:
   --cpu     number of CPUs (default: $DEFAULT_CPU)
@@ -64,6 +66,10 @@ parse_options() {
                 ;;
             --bed)
                 BED_FILE="$2"
+                shift 2
+                ;;
+            --slop)
+                SLOP_SIZE="$2"
                 shift 2
                 ;;
             --cpu)
@@ -110,6 +116,12 @@ run_command() {
     PREFIX="$(basename ${BAM_FILE} .bam | sed -E 's@(rmduplic-|merged-|-sorted|_P|_merge|-ready)@@g')"
 
     while IFS=$'\t' read -r CHROM START END NAME SCORE STRAND; do
+
+    # use with care as it does not restrict resizing to the size of the chromosome
+    
+    START=$((START-${SLOP_SIZE}))
+    
+    END=$((END+${SLOP_SIZE}))
 
     TMP_BAM_FILE=$(mktemp --suffix=.${PREFIX})
 
