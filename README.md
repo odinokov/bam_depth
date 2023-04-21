@@ -4,7 +4,7 @@ It considers the strand of the region and outputs a tab-separated file with
 the region name and the coverage depth for each position in the region.
 
 __Usage:__
-`./bam_depth.sh --bam <bam_file> --bed <bed_file> [--cpu <num_cpus>]`
+`./bam_depth.sh --bam <bam_file> --bed <bed_file> --slop 2 [--cpu <num_cpus>]`
 
 __Output:__
 ```
