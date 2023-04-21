@@ -117,7 +117,7 @@ run_command() {
 
     while IFS=$'\t' read -r CHROM START END NAME SCORE STRAND; do
 
-    # use with care as it does not restrict resizing to the size of the chromosome
+    # use with care as it does not restrict resizing to the size of chromosomes
     
     START=$((START-${SLOP_SIZE}))
     
