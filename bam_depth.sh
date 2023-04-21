@@ -141,7 +141,7 @@ run_command() {
 
     cleanup
 
-    done < <(cat ${BED_FILE} | cut -f1-6 2> /dev/null)
+    done < <(cut -f1-6 ${BED_FILE} 2> /dev/null)
 }
 
 cleanup() {
