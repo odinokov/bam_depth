@@ -158,6 +158,12 @@ main() {
         show_help
         exit 1
     fi
+    
+    if [[ -z "${SLOP_SIZE}" ]]; then
+        echo "Error: slop size must be specified" >&2
+        show_help
+        exit 1
+    fi
 
     check_files
 
