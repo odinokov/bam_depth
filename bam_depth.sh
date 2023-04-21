@@ -92,7 +92,7 @@ parse_options() {
 check_dependencies() {
 
     # Define software dependencies
-    declare -ra deps=("samtools" "crabz")
+    declare -ra deps=("samtools")
 
     # Check that required software dependencies are installed
     for dep in "${deps[@]}"
@@ -141,7 +141,7 @@ run_command() {
 
     cleanup
 
-    done < <(crabz -d -p${NUM_CPUS} ${BED_FILE} 2> /dev/null)
+    done < <(cat ${BED_FILE} 2> /dev/null)
 }
 
 cleanup() {
