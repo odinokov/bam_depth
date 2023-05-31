@@ -1,4 +1,3 @@
-%%writefile test.sh
 #!/bin/bash
 #
 # bam_depth.sh is a bash script that filters BAM data, expands regions in BED files, 
